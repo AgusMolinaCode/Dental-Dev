@@ -52,12 +52,12 @@ export default function Menu() {
         </div>
 
         <div className="grid content-center gap-2">
-          <Button size="sm" variant="outlined">
-            <Link href="#reservas">Reservas</Link>
-          </Button>
-          <Button size="sm" variant="outlined">
-            <Link href="#contact">Contactanos</Link>
-          </Button>
+            <Button size="sm" variant="outlined">
+              <Link href="#reservas">Reservas</Link>
+            </Button>
+            <Button size="sm" variant="outlined">
+              <Link href="#contact">Contactanos</Link>
+            </Button>
           <Button size="sm">
             <Link
               href="https://www.linkedin.com/in/agustin-molina-994635138/"

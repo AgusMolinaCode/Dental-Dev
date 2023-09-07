@@ -1,12 +1,13 @@
 import React from "react";
 import { Outfit } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
 const Hero = () => {
   return (
-    <div className="mt-8 px-3 grid 2xl:flex justify-center lg:gap-28 ">
+    <div id="reservas" className="mt-8 px-3 grid 2xl:flex justify-center lg:gap-28 ">
       <div className="">
         <div className="max-w-[21rem]">
           <div className={outfit.className}>
@@ -42,12 +43,16 @@ const Hero = () => {
           </div>
 
           <div className="flex gap-2">
-            <button className="bg-blue-400 hover:bg-blue-500 duration-200 text-white font-bold text-[1.5rem] px-4 py-2 md:px-6 md:py-3 rounded-2xl ">
+            <Link 
+            href='#reservas'
+            className="bg-blue-400 hover:bg-blue-500 duration-200 text-white font-bold text-[1.5rem] px-4 py-2 md:px-6 md:py-3 rounded-2xl ">
               Reservar
-            </button>
-            <button className="bg-blue-400 hover:bg-blue-500 duration-200 text-white font-bold text-[1.5rem] px-4 py-2 md:px-6 md:py-3 rounded-2xl ">
+            </Link>
+            <Link 
+            href='#contact'
+            className="bg-blue-400 hover:bg-blue-500 duration-200 text-white font-bold text-[1.5rem] px-4 py-2 md:px-6 md:py-3 rounded-2xl ">
               Contactar
-            </button>
+            </Link>
           </div>
           <div className={outfit.className}>
             <p className="max-w-[34rem] pt-8 text-gray-500">

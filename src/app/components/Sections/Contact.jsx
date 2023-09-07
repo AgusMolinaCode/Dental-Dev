@@ -30,11 +30,12 @@ const Contact = () => {
 
     // Toggle the Popup to make it open by default.
     marker1.togglePopup();
+    window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div id="contact">
-      <div className="bg-gray-300 border-t border-black px-2 md:px-12 ">
+    <div >
+      <div id="contact" className="bg-gray-300 border-t border-black px-2 md:px-12 ">
         <h1 className="text-2xl pt-4 sm:pt-14 sm:text-4xl text-center font-medium">
           Contacto
         </h1>
