@@ -30,7 +30,7 @@ export default function ContactForm() {
     })
     setTimeout(() => {
         setMensajeEnviado(false);
-    }, 3200);
+    }, 2800);
     event.target.reset();
   };
 
@@ -44,7 +44,7 @@ export default function ContactForm() {
       </Typography>
       <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96" onSubmit={handleSubmit}>
         <div className="mb-4 flex flex-col gap-6">
-          <Input size="lg" label="Nombre" name="nombre" pattern="[a-zA-Z]{4,}" required />
+          <Input size="lg" label="Nombre" name="nombre" required />
           <Input size="lg" label="Email" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
           <Textarea label="Message" name="message" pattern=".{4,}" required />
         </div>
