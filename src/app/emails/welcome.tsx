@@ -1,4 +1,3 @@
-import { Button } from "@react-email/button";
 import { Tailwind } from "@react-email/tailwind";
 import React from "react";
 
