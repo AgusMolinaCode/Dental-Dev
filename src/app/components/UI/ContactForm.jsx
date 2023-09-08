@@ -12,7 +12,7 @@ export default function ContactForm() {
   const [enviado, setEnviado] = useState(false);
   const [mensajeEnviado, setMensajeEnviado] = useState(false);
 
-  const handleSubmit = (event) => {
+   async function handleSubmit (event) {
     event.preventDefault();
     const nombre = event.target.elements.nombre.value;
     const email = event.target.elements.email.value;
@@ -21,6 +21,13 @@ export default function ContactForm() {
     console.log(datos);
     setEnviado(true);
     setMensajeEnviado(true);
+    await fetch('/api/send', {
+      method: 'POST',
+      body: JSON.stringify({
+        firstName: nombre,
+        email,
+      })
+    })
     setTimeout(() => {
         setMensajeEnviado(false);
     }, 3200);

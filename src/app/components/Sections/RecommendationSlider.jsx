@@ -7,7 +7,7 @@ import {
   BsFillStarFill,
 } from "react-icons/bs";
 import { BiSolidQuoteAltLeft } from "react-icons/bi";
-import Data from "@/app/Data/Data";
+import Data from "../../Data/Data";
 import Image from "next/image";
 
 const RecommendationSlider = () => {

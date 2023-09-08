@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import BackgroundBlogCard from "./BackgroundBlogCard";
-import Doctors from "@/app/Data/Doctors";
+import Doctors from "../../Data/Doctors";
 import SlideNavButtons from "./SlideNavButtons";
 
 // Import Swiper styles
