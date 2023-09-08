@@ -22,19 +22,3 @@ export async function POST(request: Request) {
   }
 }
 
-// export async function POST(request: Request) {
-//    const { firstName,email } = await request.json();
-//    await resend.emails.send({
-//       from: 'onboarding@resend.dev',
-//       to: email,
-//       subject: 'Nos pondremos en contacto pronto',
-//       react: Email({
-//         firstName,
-//       }),
-//     });
-
-//     return NextResponse.json({
-//         status: 'success',
-//     });
-
-// }
