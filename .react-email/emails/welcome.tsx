@@ -1,2 +1,2 @@
-import Mail from '../../src/emails/welcome.tsx';
+import Mail from '../../src/app/emails/welcome.tsx';
 export default Mail;

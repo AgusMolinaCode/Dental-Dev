@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "email": "email dev --dir src/emails"
+    "email": "email dev --dir src/app/emails"
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.1",
