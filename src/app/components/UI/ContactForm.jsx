@@ -21,6 +21,9 @@ export default function ContactForm() {
     console.log(datos);
     setEnviado(true);
     setMensajeEnviado(true);
+    setTimeout(() => {
+        setMensajeEnviado(false);
+    }, 2800);
     await fetch('/api/send', {
       method: 'POST',
       body: JSON.stringify({
@@ -28,9 +31,6 @@ export default function ContactForm() {
         email,
       })
     })
-    setTimeout(() => {
-        setMensajeEnviado(false);
-    }, 2800);
     event.target.reset();
   };
 

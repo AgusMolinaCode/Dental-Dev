@@ -35,7 +35,7 @@ const Email = ({ firstName }) => {
           </Heading>
           <p className="text-center text-gray-600 text-lg">
             Gracias por contactarte con nosotros. En breve nos pondremos en
-            contacto con vos.
+            contacto con usted.
           </p>
           <div className="mx-auto flex justify-center pb-10">
             <Img src={baseUrl} alt="Dentist" width="600" height="300" />

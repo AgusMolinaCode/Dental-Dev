@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   try {
     const data = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: 'am.motos@hotmail.com',
+      to: email,
       subject: "Contacto Dental-Dev",
       react: Email({
         firstName,
