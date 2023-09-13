@@ -7,7 +7,7 @@ const ReservaCard = ({ reserva }) => {
   const handleDelete = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/reservas/${reserva._id}`,
+        `https://dental-dev.vercel.app/api/reservas/${reserva._id}`,
         {
           method: "DELETE",
         }
