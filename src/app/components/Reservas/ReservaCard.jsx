@@ -1,6 +1,6 @@
-"use client";
+'use client';
 import React from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 
 const ReservaCard = ({ reserva }) => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const ReservaCard = ({ reserva }) => {
         }
       );
       const data = await res.json();
-      router.refresh();
+      router.reload(); // recarga la página para mostrar los cambios
       console.log(data);
     } catch (error) {
       console.log(error);
