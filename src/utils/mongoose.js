@@ -7,15 +7,13 @@ const conn = {
 export async function connectDB() {
   if (conn.isConnected) return;
   const db = await connect(
-    `mongodb+srv://root:${process.env.MONGODB_KEY}@cluster0.ffgb9td.mongodb.net/?retryWrites=true&w=majority` ||
-      "mongodb://127.0.0.1:27017/Reservas"
-    
+    `mongodb+srv://root:${process.env.MONGODB_KEY}@cluster0.ffgb9td.mongodb.net/?retryWrites=true&w=majority`
   );
-  console.log(db.connection.db.databaseName);
-  conn.isConnected = db.connections[0].readyState;
 
   connection.on("connected", () => {
     console.log("Mongoose is connected");
+    console.log(db.connection.db.databaseName);
+    conn.isConnected = db.connections[0].readyState;
   });
 
   connection.on("disconnected", (err) => {
