@@ -7,7 +7,7 @@ const conn = {
 export async function connectDB() {
   if (conn.isConnected) return;
   const db = await connect(
-    `mongodb+srv://root:${process.env.MONGODB_KEY}@cluster0.ffgb9td.mongodb.net/Reservas` ||
+    `mongodb+srv://root:${process.env.MONGODB_KEY}@cluster0.ffgb9td.mongodb.net/?retryWrites=true&w=majority` ||
       "mongodb://127.0.0.1:27017/Reservas"
     
   );
