@@ -3,14 +3,14 @@ import { connectDB } from "../../utils/mongoose";
 import Reserva from "../../models/Reserva";
 import ReservaCard from "../components/Reservas/ReservaCard";
 
-async function getReservas() {
-  await connectDB();
-  const reservas = await Reserva.find();
-  return reservas;
-}
-
 async function page() {
   
+  const getReservas = async () => {
+    await connectDB();
+    const reservas = await Reserva.find();
+    return reservas;
+  };
+
   const reservas = await getReservas();
 
   return (
