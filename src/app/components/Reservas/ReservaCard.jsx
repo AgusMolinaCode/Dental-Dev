@@ -1,24 +1,20 @@
-"use client";
-import React from "react";
-import { useRouter } from "next/navigation";
+'use client';
+import React, { useState } from "react";
 
-const ReservaCard = ({ reserva }) => {
-  
-  const router = useRouter();
+const ReservaCard = ({ reserva, onReservaDelete }) => {
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDelete = async () => {
+    setIsDeleting(true);
     try {
-      const res = await fetch(
-        `/api/reservas/${reserva._id}`,
-        {
-          method: "DELETE",
-        }
-      );
-      const data = await res.json();
-      router.refresh();
-      console.log(data);
+      await fetch(`/api/reservas/${reserva._id}`, {
+        method: "DELETE",
+      });
+      onReservaDelete(reserva._id);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -28,8 +24,9 @@ const ReservaCard = ({ reserva }) => {
         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
         type="button"
         onClick={handleDelete}
+        disabled={isDeleting}
       >
-        Delete
+        {isDeleting ? "Deleting..." : "Delete"}
       </button>
       <h2>{reserva.name}</h2>
       <p>{reserva.email}</p>

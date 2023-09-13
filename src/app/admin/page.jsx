@@ -1,17 +1,29 @@
-import React from "react";
-import { connectDB } from "../../utils/mongoose";
-import Reserva from "../../models/Reserva";
+'use client';
+import React, { useState, useEffect } from "react";
 import ReservaCard from "../components/Reservas/ReservaCard";
+import { useRouter } from "next/navigation";
 
-async function page() {
-  
-  const getReservas = async () => {
-    await connectDB();
-    const reservas = await Reserva.find();
-    return reservas;
+function Page() {
+  const router = useRouter();
+
+  const [reservas, setReservas] = useState([]);
+
+  useEffect(() => {
+    async function fetchReservas() {
+      const res = await fetch("/api/reservas");
+      const data = await res.json();
+      setReservas(data);
+      router.refresh();
+    }
+    fetchReservas();
+  }, []);
+
+  const handleReservaDelete = (reservaId) => {
+    const filteredReservas = reservas.filter(
+      (reserva) => reserva._id !== reservaId
+    );
+    setReservas(filteredReservas);
   };
-
-  const reservas = await getReservas();
 
   return (
     <div>
@@ -21,11 +33,17 @@ async function page() {
       <div className="px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
         {reservas.map((reserva) => {
           const simpleReserva = JSON.parse(JSON.stringify(reserva));
-          return <ReservaCard key={reserva._id} reserva={simpleReserva} />;
+          return (
+            <ReservaCard
+              key={reserva._id}
+              reserva={simpleReserva}
+              onReservaDelete={handleReservaDelete}
+            />
+          );
         })}
       </div>
     </div>
   );
 }
 
-export default page;
+export default Page;
