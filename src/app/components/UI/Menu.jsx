@@ -52,32 +52,44 @@ export default function Menu() {
         </div>
 
         <div className="grid content-center gap-2">
-            <Button size="sm" variant="outlined">
-              <Link href="#reservas">Reservas</Link>
+          <Link href="#reservas">
+            <Button size="sm" variant="outlined" className="w-full">
+              Reservas
             </Button>
-            <Button size="sm" variant="outlined">
-              <Link href="#contact">Contactanos</Link>
+          </Link>
+          <Link href="#contact">
+            <Button size="sm" variant="outlined" className="w-full">
+              Contactanos
             </Button>
-          <Button size="sm">
-            <Link
-              href="https://www.linkedin.com/in/agustin-molina-994635138/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white  hover:text-blue-300 duration-200"
-            >
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/agustin-molina-994635138/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white  hover:text-blue-300 duration-200"
+          >
+            <Button size="sm" className="w-full">
               LinkedIn
-            </Link>
-          </Button>
-          <Button size="sm">
-            <Link
-              href="https://github.com/AgusMolinaCode"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white  hover:text-blue-300 duration-200"
-            >
+            </Button>
+          </Link>
+          <Link
+            href="https://github.com/AgusMolinaCode"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white  hover:text-blue-300 duration-200"
+          >
+            <Button size="sm" className="w-full">
               GitHub
-            </Link>
-          </Button>
+            </Button>
+          </Link>
+          <Link
+            href="/admin"
+            className="text-white  hover:text-blue-300 duration-200"
+          >
+            <Button size="sm" className="bg-blue-800 w-full">
+              Admin
+            </Button>
+          </Link>
         </div>
       </Drawer>
     </React.Fragment>

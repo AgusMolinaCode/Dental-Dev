@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Input, Select, Option } from "@material-tailwind/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { addDays, isAfter, getDay } from "date-fns";
+import { getDay } from "date-fns";
 import toast, { Toaster } from "react-hot-toast";
 
 const Form = () => {
@@ -13,38 +13,51 @@ const Form = () => {
   const [turnoSeleccionado, setTurnoSeleccionado] = useState("");
   const [fechaSeleccionada, setFechaSeleccionada] = useState(new Date());
 
-  const handleChange = (e) => {
+  const handleChangeEspecialidad = (e) => {
     setEspecialidadSeleccionada(e);
   };
 
   function handleTurnoChange(e) {
     setTurnoSeleccionado(e);
   }
+
   const notify = () =>
     toast.success(
       "Reserva enviada correctamente, nos pondremos en contacto con usted a la brevedad."
     );
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    const nombre = event.target.elements.nombre.value;
+    const name = event.target.elements.nombre.value;
     const email = event.target.elements.email.value;
+    const whatsapp = event.target.elements.whatsapp.value;
     const especialidad = especialidadSeleccionada;
     const turno = turnoSeleccionado;
-    const fecha = fechaSeleccionada;
-
-    if (fecha.getDay() === 0 || fecha.getDay() === 6) {
+    const fecha1 = fechaSeleccionada;
+    if (fecha1.getDay() === 0 || fecha1.getDay() === 6) {
       toast.error("Por favor seleccione una fecha entre lunes y viernes.");
       return;
     }
-
-    const date = fecha.toISOString().slice(0, 10);
-    const datos = { nombre, email, especialidad, date, turno };
+    const fecha = fecha1.toISOString().slice(0, 10);
+    const datos = { name, email, whatsapp, especialidad, turno, fecha };
     console.log(datos);
     setEnviado(true);
     setMensajeEnviado(true);
     notify();
+    await crearReserva(datos);
+    event.target.reset();
   }
+
+  const crearReserva = async (datos) => {
+    const res = await fetch("/api/reservas", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(datos),
+    });
+    console.log(res);
+  };
 
   const filterDate = (date) => {
     const day = getDay(date);
@@ -65,7 +78,7 @@ const Form = () => {
         <div className="">
           <Input
             label="Whatsapp"
-            name="email"
+            name="whatsapp"
             size="lg"
             type="number"
             required
@@ -77,19 +90,20 @@ const Form = () => {
             size="lg"
             name="especialidad"
             value={especialidadSeleccionada}
-            onChange={handleChange}
+            onChange={handleChangeEspecialidad}
             animate={{
               mount: { y: 0 },
               unmount: { y: 25 },
             }}
             className="text-black"
           >
+            <Option value="urgencia">URGENCIAS</Option>
+            <Option value="otro">Otro - Consulta</Option>
             <Option value="periodoncia">Periodoncia</Option>
             <Option value="cirugia">Cirugía Oral y Maxilofacial</Option>
             <Option value="odontopediatria">Odontopediatría</Option>
             <Option value="cosmetica">Odontología Cosmética</Option>
             <Option value="ortodoncia">Ortodoncia</Option>
-            <Option value="otro">Otro</Option>
           </Select>
         </div>
         <div className="">
