@@ -1,19 +1,19 @@
-'use client';
+"use client";
 import React from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const ReservaCard = ({ reserva }) => {
   const router = useRouter();
   const handleDelete = async () => {
     try {
       const res = await fetch(
-        `https://dental-dev.vercel.app/api/reservas/${reserva._id}`,
+        `/api/reservas/${reserva._id}`,
         {
           method: "DELETE",
         }
       );
       const data = await res.json();
-      router.reload(); // recarga la página para mostrar los cambios
+      router.refresh();
       console.log(data);
     } catch (error) {
       console.log(error);

@@ -10,6 +10,7 @@ async function getReservas() {
 }
 
 async function page() {
+  
   const reservas = await getReservas();
 
   return (
