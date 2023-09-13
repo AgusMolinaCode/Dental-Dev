@@ -4,7 +4,7 @@ import Reserva from "../../../../models/Reserva";
 
 export async function GET(request, { params }) {
   try {
-    connectDB();
+    await connectDB();
     const reservaEncontrada = await Reserva.findById(params.id);
     if (!reservaEncontrada) {
       return NextResponse.json(
@@ -26,6 +26,7 @@ export async function GET(request, { params }) {
 
 export async function DELETE(request, { params }) {
   try {
+    await connectDB();
     const reservaEliminada = await Reserva.findByIdAndDelete(params.id);
     if (!reservaEliminada) {
       return NextResponse.json(
@@ -47,6 +48,7 @@ export async function DELETE(request, { params }) {
 
 export async function PUT(request, { params }) {
   try {
+    await connectDB();
     const data = await request.json();
     const reservaActualizada = await Reserva.findByIdAndUpdate(
       params.id,

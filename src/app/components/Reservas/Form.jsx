@@ -49,6 +49,7 @@ const Form = () => {
   }
 
   const crearReserva = async (datos) => {
+    
     const res = await fetch("/api/reservas", {
       method: "POST",
       headers: {
