@@ -12,7 +12,7 @@ export const connectDB = async () => {
 
   try {
     await mongoose.connect(
-      `mongodb+srv://root:${process.env.MONGODB_URI}@cluster0.ffgb9td.mongodb.net/?retryWrites=true&w=majority` ||
+      `mongodb+srv://root:${process.env.MONGODB_KEY}@cluster0.ffgb9td.mongodb.net/?retryWrites=true&w=majority` ||
         "mongodb:127.0.0.1:27017/test",
       {
         dbName: "test",
