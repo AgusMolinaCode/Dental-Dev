@@ -1,22 +1,28 @@
-import { connect, connection } from "mongoose";
+import mongoose from "mongoose";
 
-const conn = {
-  isConnected: false,
+let isConnected = false;
+
+export const connectDB = async () => {
+  mongoose.set("strictQuery", true);
+
+  if (isConnected) {
+    console.log("=> using existing database connection");
+    return;
+  }
+
+  try {
+    await mongoose.connect(
+      `mongodb+srv://root:${process.env.MONGODB_KEY}@cluster0.ffgb9td.mongodb.net/?retryWrites=true&w=majority`,
+      {
+        dbName: "test",
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
+
+    isConnected = true;
+    console.log("=> new database connection");
+  } catch (error) {
+    console.log("=> error connecting to database:", error);
+  }
 };
-
-export async function connectDB() {
-  if (conn.isConnected) return;
-  const db = await connect(
-    `mongodb+srv://root:${process.env.MONGODB_KEY}@cluster0.ffgb9td.mongodb.net/?retryWrites=true&w=majority`
-  );
-
-  connection.on("connected", () => {
-    console.log("Mongoose is connected");
-    console.log(db.connection.db.databaseName);
-    conn.isConnected = db.connections[0].readyState;
-  });
-
-  connection.on("disconnected", (err) => {
-    console.log("Mongoose is disconnected", err);
-  });
-}

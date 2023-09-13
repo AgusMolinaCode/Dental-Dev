@@ -17,7 +17,7 @@ async function page() {
       <h1 className="text-center text-4xl font-bold underline py-8">
         Reservas
       </h1>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="px-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
         {reservas.map((reserva) => {
           const simpleReserva = JSON.parse(JSON.stringify(reserva));
           return <ReservaCard key={reserva._id} reserva={simpleReserva} />;
