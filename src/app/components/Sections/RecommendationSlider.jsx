@@ -77,6 +77,7 @@ const RecommendationSlider = () => {
               </div>
             </div>
             <Image
+              loading="lazy"
               src={item.foto}
               alt="image 1"
               className="h-[400px] w-[450px] rounded-2xl object-cover"

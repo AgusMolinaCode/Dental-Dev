@@ -52,6 +52,7 @@ const Servicios = () => {
               </p>
               <div className="relative">
                 <Image
+                  loading="lazy"
                   src={item.image}
                   alt={item.title}
                   width={408}

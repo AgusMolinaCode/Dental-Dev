@@ -22,9 +22,9 @@ const Data = [
         id: 3,
         nombre: "Luisa Perez",
         trabajo: "Diseñadora",
-        avatar: "/avatar1.jpg",
+        avatar: "/avatar1.webp",
         estrellas: 3,
-        foto: "/avatar1.jpg",
+        foto: "/avatar1.webp",
         descripcion: "Cuando llegué a vuestra clínica dental, mi confianza estaba por los suelos debido a problemas dentales que había ignorado durante demasiado tiempo. El equipo de profesionales me recibió con los brazos abiertos y sin juzgar. Cada visita fue una experiencia positiva, y los resultados de los tratamientos hablan por sí mismos. Ahora, no solo tengo una sonrisa sana, sino que también siento que he recuperado mi autoestima. Agradezco sinceramente a vuestra clínica por devolverme mi salud bucal y mi sonrisa."
     },
 ]

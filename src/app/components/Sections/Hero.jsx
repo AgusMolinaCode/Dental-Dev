@@ -75,7 +75,8 @@ const Hero = () => {
 
         <div className="">
           <Image
-            src="/smile6.jpeg"
+            loading="lazy"
+            src="/smile6.webp"
             alt="Person Smile"
             width={800}
             height={800}
