@@ -6,7 +6,7 @@ const TABLE_ROWS = Doctors;
 
 export default function Doctores() {
   return (
-    <Card className="h-full l m-4 pt-5 overflow-scroll">
+    <Card className="h-full m-2 sm:m-4 pt-1 sm:pt-5 overflow-scroll">
       <table className="w-full min-w-max table-auto text-left">
         <thead>
           <tr>

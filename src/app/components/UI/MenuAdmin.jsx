@@ -1,24 +1,28 @@
-"use client";
 import React from "react";
 import { Drawer, Button, IconButton } from "@material-tailwind/react";
 import { Archivo_Black } from "next/font/google";
 import Link from "next/link";
 
 const contrail = Archivo_Black({
-  weight: ["400"], // Cambiar a 400
+  weight: ["400"], 
   subsets: ["latin"],
 });
 
-export default function Menu() {
+export default function MenuAdmin(props) {
   const [open, setOpen] = React.useState(false);
 
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
 
+  const handleButtonClick = (component) => {
+    props.onButtonClick(component);
+    closeDrawer();
+  };
+
   return (
     <React.Fragment>
       <button
-        className="hover:text-white duration-300 pl-6 pr-6 py-1 rounded-3xl border font-medium text-xl hover:bg-black border-black"
+        className="hover:text-white duration-300 pl-6 pr-6 py-1 rounded-3xl border font-medium text-xl hover:bg-black border-black absolute right-1 top-2 bg-yellow-100"
         onClick={openDrawer}
       >
         Menu
@@ -49,16 +53,38 @@ export default function Menu() {
         </div>
 
         <div className="grid content-center gap-2">
-          <Link href="#reservas">
-            <Button size="sm" variant="outlined" className="w-full">
-              Reservas
-            </Button>
-          </Link>
-          <Link href="#contact">
-            <Button size="sm" variant="outlined" className="w-full">
-              Contactanos
-            </Button>
-          </Link>
+          <Button
+            size="sm"
+            variant="outlined"
+            className="w-full"
+            onClick={() => handleButtonClick(1)}
+          >
+            Turnos Pendientes
+          </Button>
+          <Button
+            size="sm"
+            variant="outlined"
+            className="w-full"
+            onClick={() => handleButtonClick(2)}
+          >
+            Turnos Asignados
+          </Button>
+          <Button
+            size="sm"
+            variant="outlined"
+            className="w-full"
+            onClick={() => handleButtonClick(4)}
+          >
+            Turnos Urgentes
+          </Button>
+          <Button
+            size="sm"
+            variant="outlined"
+            className="w-full"
+            onClick={() => handleButtonClick(3)}
+          >
+            Doctores
+          </Button>
           <Link
             href="https://www.linkedin.com/in/agustin-molina-994635138/"
             target="_blank"
@@ -80,11 +106,11 @@ export default function Menu() {
             </Button>
           </Link>
           <Link
-            href="/admin"
+            href="/"
             className="text-white  hover:text-blue-300 duration-200"
           >
             <Button size="sm" className="bg-blue-800 w-full">
-              Admin
+              Home
             </Button>
           </Link>
         </div>

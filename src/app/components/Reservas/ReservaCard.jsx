@@ -48,28 +48,28 @@ const ReservaCard = ({ reserva, onReservaDelete, onReservaEdit, bgColor }) => {
         reserva.especialidad === "urgencia" && "bg-[#f8bcbc]"
       }`}
     >
-      <h2 className="font bold text-xl text-gray-700 font-medium py-1">
+      <h2 className="font bold sm:text-md md:text-xl text-gray-700 font-medium py-1">
         <span className="text-sm font-medium">Nombre:</span> {reserva.name}
       </h2>
-      <p className="font bold text-xl text-gray-700 font-medium py-1">
+      <p className="font bold sm:text-md md:text-xl text-gray-700 font-medium py-1">
         <span className="text-sm font-medium">Email:</span> {reserva.email}
       </p>
-      <p className="font bold text-xl text-gray-700 font-medium py-1">
+      <p className="font bold sm:text-md md:text-xl text-gray-700 font-medium py-1">
         <span className="text-sm font-medium">Whatsapp:</span>{" "}
         {reserva.whatsapp}
       </p>
-      <p className="font bold text-xl text-gray-700 font-medium py-1">
+      <p className="font bold sm:text-md md:text-xl text-gray-700 font-medium py-1">
         <span className="text-sm font-medium">Especialidad:</span>{" "}
         {reserva.especialidad}
       </p>
-      <p className="font bold text-xl text-gray-700 font-medium py-1">
+      <p className="font bold sm:text-md md:text-xl text-gray-700 font-medium py-1">
         <span className="text-sm font-medium">Turno:</span> {reserva.turno}
       </p>
-      <p className="font bold text-xl text-gray-700 font-medium py-1">
+      <p className="font bold sm:text-md md:text-xl text-gray-700 font-medium py-1">
         <span className="text-sm font-medium">Fecha:</span> {dia}/{mes}/{anio}
       </p>
 
-      <div className="flex w-max gap-4 py-2">
+      <div className="flex mx-auto flex-wrap gap-2 py-2">
         <Button
           type="button"
           onClick={handleDelete}

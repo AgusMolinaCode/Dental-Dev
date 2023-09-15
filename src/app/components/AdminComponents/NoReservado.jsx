@@ -50,7 +50,7 @@ const NoReservado = () => {
         </div>
       ) : (
         <div className="px-2">
-          <h1 className="text-3xl font-bold underline py-8">
+          <h1 className="text-xl sm:text-3xl font-bold underline py-4 sm:py-8">
             Turnos Pendientes
           </h1>
           <div className="px-2 grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-2">
