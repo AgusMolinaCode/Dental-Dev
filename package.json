@@ -10,6 +10,7 @@
     "email": "email dev --dir src/app/emails"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.1.1",
     "@react-email/button": "0.0.10",
     "@react-email/components": "^0.0.7",

@@ -29,6 +29,10 @@ const reservaSchema = new Schema(
       type: Date,
       trim: true,
     },
+    reservado: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

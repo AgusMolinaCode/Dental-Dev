@@ -1,8 +1,9 @@
-'use client';
 import React, { useState } from "react";
+import { Button } from "@material-tailwind/react";
 
-const ReservaCard = ({ reserva, onReservaDelete }) => {
+const ReservaCard = ({ reserva, onReservaDelete, onReservaEdit, bgColor }) => {
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const handleDelete = async () => {
     setIsDeleting(true);
@@ -18,22 +19,77 @@ const ReservaCard = ({ reserva, onReservaDelete }) => {
     }
   };
 
+  const handleEdit = async () => {
+    setIsEditing(true);
+    try {
+      await fetch(`/api/reservas/${reserva._id}`, {
+        method: "PUT",
+        body: JSON.stringify({ reservado: !reserva.reservado }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      onReservaEdit({ ...reserva, reservado: !reserva.reservado });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsEditing(false);
+    }
+  };
+
+  const fecha = new Date(reserva.fecha);
+  const dia = fecha.getDate();
+  const mes = fecha.getMonth() + 1;
+  const anio = fecha.getFullYear();
+
   return (
-    <div className="p-10 bg-gray-500">
-      <button
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
-        type="button"
-        onClick={handleDelete}
-        disabled={isDeleting}
-      >
-        {isDeleting ? "Deleting..." : "Delete"}
-      </button>
-      <h2>{reserva.name}</h2>
-      <p>{reserva.email}</p>
-      <p>{reserva.whatsapp}</p>
-      <p>{reserva.especialidad}</p>
-      <p>{reserva.turno}</p>
-      <p>{reserva.fecha}</p>
+    <div
+      className={`p-3 border border-black shadow-xl rounded-2xl ${bgColor} ${
+        reserva.especialidad === "urgencia" && "bg-[#f8bcbc]"
+      }`}
+    >
+      <h2 className="font bold text-xl text-gray-700 font-medium py-1">
+        <span className="text-sm font-medium">Nombre:</span> {reserva.name}
+      </h2>
+      <p className="font bold text-xl text-gray-700 font-medium py-1">
+        <span className="text-sm font-medium">Email:</span> {reserva.email}
+      </p>
+      <p className="font bold text-xl text-gray-700 font-medium py-1">
+        <span className="text-sm font-medium">Whatsapp:</span>{" "}
+        {reserva.whatsapp}
+      </p>
+      <p className="font bold text-xl text-gray-700 font-medium py-1">
+        <span className="text-sm font-medium">Especialidad:</span>{" "}
+        {reserva.especialidad}
+      </p>
+      <p className="font bold text-xl text-gray-700 font-medium py-1">
+        <span className="text-sm font-medium">Turno:</span> {reserva.turno}
+      </p>
+      <p className="font bold text-xl text-gray-700 font-medium py-1">
+        <span className="text-sm font-medium">Fecha:</span> {dia}/{mes}/{anio}
+      </p>
+
+      <div className="flex w-max gap-4 py-2">
+        <Button
+          type="button"
+          onClick={handleDelete}
+          disabled={isDeleting}
+          color="red"
+        >
+          {isDeleting ? "Deleting..." : "Delete"}
+        </Button>
+
+        {reserva.reservado ? null : (
+          <Button
+            className="bg-green-500"
+            type="button"
+            onClick={handleEdit}
+            disabled={isEditing}
+          >
+            {isEditing ? "Updating..." : "Confirmar Reserva"}
+          </Button>
+        )}
+      </div>
     </div>
   );
 };

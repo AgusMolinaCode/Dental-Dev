@@ -3,7 +3,6 @@ import React from "react";
 import {
   Drawer,
   Button,
-  Typography,
   IconButton,
 } from "@material-tailwind/react";
 import { Archivo_Black } from "next/font/google";
