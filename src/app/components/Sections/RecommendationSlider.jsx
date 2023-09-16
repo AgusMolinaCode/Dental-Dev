@@ -8,7 +8,7 @@ import {
 } from "react-icons/bs";
 import { BiSolidQuoteAltLeft } from "react-icons/bi";
 import Data from "../../Data/Data";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 
 const RecommendationSlider = () => {
   return (
@@ -59,9 +59,9 @@ const RecommendationSlider = () => {
                 </p>
               </div>
               <div className="flex gap-3 mt-8">
-                <div>
+                {/* <div>
                   <Avatar src={item.avatar} alt="avatar" size="lg" />
-                </div>
+                </div> */}
                 <div>
                   <p className="font-bold">{item.nombre}</p>
                   <p className="text-gray-600 text-sm">{item.trabajo}</p>
@@ -76,13 +76,13 @@ const RecommendationSlider = () => {
                 </div>
               </div>
             </div>
-            <Image
-              loading="lazy"
+            <CldImage
+              width="450"
+              height="400"
               src={item.foto}
-              alt="image 1"
+              alt="Slide Doctors"
               className="h-[400px] w-[450px] rounded-2xl object-cover"
-              width={450}
-              height={400}
+              format="webp"
             />
           </div>
         ))}

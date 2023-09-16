@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import { Outfit } from "next/font/google";
+import { CldImage } from "next-cloudinary";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./Navbar";
@@ -74,12 +76,14 @@ const Hero = () => {
         </div>
 
         <div className="">
-          <Image
-            loading="lazy"
-            src="/smile6.webp"
+          <CldImage
+            quality={"70"}
+            format="webp"
+            width="800"
+            height="800"
+            src="https://res.cloudinary.com/dk0jth6fd/image/upload/v1694828299/smile6_vxhsw1.jpg"
+            sizes="100vw"
             alt="Person Smile"
-            width={800}
-            height={800}
             className="rounded-2xl mt-5 sm:mt-0 md:rounded-[3rem] w-[380px] sm:w-[800px] mx-auto flex justify-center items-center"
           />
         </div>

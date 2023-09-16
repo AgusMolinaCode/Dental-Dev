@@ -37,10 +37,10 @@ export default function BackgroundBlogCard({ doctor }) {
         >
           {doctor.description}
         </Typography>
-        <div className="flex justify-between items-center px-2">
-          <div className="w-20 h-20 object-cover pt-3 object-center">
+        <div className="flex justify-between items-center px-2 pt-4">
+          {/* <div className="w-20 h-20 object-cover pt-3 object-center">
             <Avatar alt="tania andrew" src={doctor.img} />
-          </div>
+          </div> */}
           <div className="flex items-center gap-2">
             <BsFillStarFill className="text-yellow-400 text-[1.3rem]" />
             <p className="text-gray-500 text-[1.4rem]">{doctor.stars}</p>
