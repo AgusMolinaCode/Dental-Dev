@@ -27,11 +27,11 @@ export default function BackgroundBlogCard({ doctor }) {
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
       </CardHeader>
       <CardBody className="relative py-2 px-1 md:px-2">
-        <Typography variant="h5" className="mb-4 text-white font-bold text-2xl">
+        <Typography variant="h2" className="mb-4 text-white font-bold text-2xl">
           {doctor.name}
         </Typography>
         <Typography
-          variant="h2"
+          variant="p"
           color="white"
           className="mb-10 font-semibold leading-[1.5] h-32 md:h-28 text-sm"
         >

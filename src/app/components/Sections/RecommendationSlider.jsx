@@ -22,6 +22,8 @@ const RecommendationSlider = () => {
             size="lg"
             onClick={handlePrev}
             className="!absolute bottom-20 right-24 "
+            type="button"
+            role="button"
           >
             <BsArrowLeftSquareFill className="text-3xl text-black" />
           </IconButton>
@@ -33,6 +35,8 @@ const RecommendationSlider = () => {
             size="lg"
             onClick={handleNext}
             className="!absolute bottom-20 right-14 "
+            type="button"
+            role="button"
           >
             <BsArrowRightSquareFill className="text-3xl text-black" />
           </IconButton>

@@ -41,6 +41,7 @@ const Contact = () => {
           <div>
             <div
               id="map"
+              aria-hidden="true"
               className="h-[500px] w-[319px] sm:w-[600px] px-2 md:w-[800px] border border-black rounded-3xl"
             />
             <div className="flex justify-around items-center mx-auto mt-8">

@@ -10,25 +10,29 @@ const Data = [
     title: "Consultas Virtuales",
     description:
       "Excepteur est non dolor occaecat occaecat laboris eiusmod ut veniam incididunt occaecat ullamco culpa consequat. Duis aliquip do exercitation sit commodo. Irure labore non officia sunt ea. Duis officia ut id ea.",
-    image: "https://res.cloudinary.com/dk0jth6fd/image/upload/v1694829067/doctor1_rwdnmd.jpg",
+    image:
+      "https://res.cloudinary.com/dk0jth6fd/image/upload/v1694829067/doctor1_rwdnmd.jpg",
   },
   {
     title: "Limpieza Dental",
     description:
       "Excepteur est non dolor occaecat occaecat laboris eiusmod ut veniam incididunt occaecat ullamco culpa consequat. Duis aliquip do exercitation sit commodo. Irure labore non officia sunt ea. Duis officia ut id ea.",
-    image: "https://res.cloudinary.com/dk0jth6fd/image/upload/v1694829060/doctor2_pwredz.jpg",
+    image:
+      "https://res.cloudinary.com/dk0jth6fd/image/upload/v1694829060/doctor2_pwredz.jpg",
   },
   {
     title: "Blanqueamiento",
     description:
       "Excepteur est non dolor occaecat occaecat laboris eiusmod ut veniam incididunt occaecat ullamco culpa consequat. Duis aliquip do exercitation sit commodo. Irure labore non officia sunt ea. Duis officia ut id ea.",
-    image: "https://res.cloudinary.com/dk0jth6fd/image/upload/v1694829060/doctor3_htp8wx.jpg",
+    image:
+      "https://res.cloudinary.com/dk0jth6fd/image/upload/v1694829060/doctor3_htp8wx.jpg",
   },
   {
     title: "Ortodoncia",
     description:
       "Excepteur est non dolor occaecat occaecat laboris eiusmod ut veniam incididunt occaecat ullamco culpa consequat. Duis aliquip do exercitation sit commodo. Irure labore non officia sunt ea. Duis officia ut id ea.",
-    image: "https://res.cloudinary.com/dk0jth6fd/image/upload/v1694829061/doctor5_zn0wot.jpg",
+    image:
+      "https://res.cloudinary.com/dk0jth6fd/image/upload/v1694829061/doctor5_zn0wot.jpg",
   },
 ];
 
@@ -60,14 +64,9 @@ const Servicios = () => {
                     preserveTransformations
                     alt={item.title}
                     format="webp"
+                    quality="70"
+                    className="rounded-2xl mt-5 border border-orange-200 hover:border-none duration-200"
                   />
-                  <div>
-                    <div className="absolute bottom-0 right-0 bg-deep-orange-50 group-hover:bg-blue-600 duration-200 p-2 rounded-tl-2xl">
-                      <Link href="https://www.google.com/">
-                        <BsBoxArrowInUpRight className="text-3xl text-blue-800 group-hover:text-gray-300 duration-200" />
-                      </Link>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

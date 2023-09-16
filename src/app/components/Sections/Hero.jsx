@@ -53,19 +53,19 @@ const Hero = () => {
             <div className="flex gap-2">
               <Link
                 href="#reservas"
-                className="bg-blue-400 hover:bg-blue-500 duration-200 text-white font-bold text-[1.5rem] px-4 py-2 md:px-6 md:py-3 rounded-2xl "
+                className="bg-blue-600 hover:bg-blue-700 duration-200 text-white font-bold text-[1.5rem] px-4 py-2 md:px-6 md:py-3 rounded-2xl "
               >
                 Reservar
               </Link>
               <Link
                 href="#contact"
-                className="bg-blue-400 hover:bg-blue-500 duration-200 text-white font-bold text-[1.5rem] px-4 py-2 md:px-6 md:py-3 rounded-2xl "
+                className="bg-blue-600 hover:bg-blue-700 duration-200 text-white font-bold text-[1.5rem] px-4 py-2 md:px-6 md:py-3 rounded-2xl "
               >
                 Contactar
               </Link>
             </div>
             <div className={outfit.className}>
-              <p className="max-w-[34rem] pt-8 text-gray-500">
+              <p className="max-w-[34rem] pt-8 text-gray-700">
                 * Imagina si tu diente pudiera ir a un spa. Bueno, nuestra app
                 de cuidado dental es la forma más cercana de hacerlo sentir
                 mimado. Reserva citas con especialistas en un abrir y cerrar de
@@ -77,7 +77,8 @@ const Hero = () => {
 
         <div className="">
           <CldImage
-            quality={"70"}
+          loading="lazy"
+            quality="60"
             format="webp"
             width="800"
             height="800"

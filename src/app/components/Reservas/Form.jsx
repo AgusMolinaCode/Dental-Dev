@@ -49,7 +49,6 @@ const Form = () => {
   }
 
   const crearReserva = async (datos) => {
-    
     const res = await fetch("/api/reservas", {
       method: "POST",
       headers: {
@@ -71,14 +70,17 @@ const Form = () => {
     <form action="" onSubmit={handleSubmit}>
       <div className="m-1 sm:m-4 grid md:grid-cols-2 gap-4 lg:justify-center lg:items-center">
         <div className="">
-          <Input label="Nombre completo" name="nombre" size="lg" required />
+          <label htmlFor="nombre">Nombre completo</label>
+          <Input id="nombre" name="nombre" size="lg" required />
         </div>
         <div className="">
-          <Input label="Email" name="email" size="lg" required />
+          <label htmlFor="email">Email</label>
+          <Input id="email" name="email" size="lg" required />
         </div>
         <div className="">
+          <label htmlFor="whatsapp">Whatsapp</label>
           <Input
-            label="Whatsapp"
+            id="whatsapp"
             name="whatsapp"
             size="lg"
             type="number"
@@ -86,8 +88,9 @@ const Form = () => {
           />
         </div>
         <div className="">
+          <label htmlFor="especialidad">Especialidad</label>
           <Select
-            label="Especialidad"
+            id="especialidad"
             size="lg"
             name="especialidad"
             value={especialidadSeleccionada}
@@ -97,6 +100,7 @@ const Form = () => {
               unmount: { y: 25 },
             }}
             className="text-black"
+            placeholder="Especialidad"
           >
             <Option value="urgencia">URGENCIAS</Option>
             <Option value="otro">Otro - Consulta</Option>
@@ -108,19 +112,9 @@ const Form = () => {
           </Select>
         </div>
         <div className="">
-          <DatePicker
-            selected={fechaSeleccionada}
-            onChange={(date) => setFechaSeleccionada(date)}
-            filterDate={filterDate}
-            minDate={fechaMinima}
-            className="w-full h-11 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
-            placeholderText="Fecha"
-            dateFormat="dd/MM/yyyy"
-          />
-        </div>
-        <div className="">
+          <label htmlFor="turno">Turno</label>
           <Select
-            label="Turno"
+            id="turno"
             size="lg"
             name="turno"
             value={turnoSeleccionado}
@@ -130,6 +124,7 @@ const Form = () => {
               mount: { y: 0 },
               unmount: { y: 25 },
             }}
+            placeholder="Turno"
           >
             <Option value="mañana">Mañana</Option>
             <Option value="tarde">Tarde</Option>

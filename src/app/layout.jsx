@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={phudu.className}>
-        <div className="bg-gray-50">
+        <div className="bg-gray-200">
           <main>{children}</main>
         </div>
       </body>

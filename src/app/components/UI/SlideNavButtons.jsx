@@ -9,12 +9,16 @@ const SlideNavButtons = () => {
       <button
         className="absolute bottom-[21rem] right-4 z-10 p-1 rounded-md"
         onClick={() => swiper.slideNext()}
+        type="button"
+        role="button"
       >
         <FaArrowCircleRight className={"text-4xl text-blue-400"} />
       </button>
       <button
         className="absolute bottom-[21rem] left-0 z-10 p-1 rounded-md"
         onClick={() => swiper.slidePrev()}
+        type="button"
+        role="button"
       >
         <FaArrowCircleLeft className="text-4xl text-blue-400" />
       </button>
