@@ -31,7 +31,7 @@ export default function BackgroundBlogCard({ doctor }) {
           {doctor.name}
         </Typography>
         <Typography
-          variant="p"
+          variant="h4"
           color="white"
           className="mb-10 font-semibold leading-[1.5] h-32 md:h-28 text-sm"
         >

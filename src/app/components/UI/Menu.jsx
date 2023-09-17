@@ -3,6 +3,7 @@ import React from "react";
 import { Drawer, Button, IconButton } from "@material-tailwind/react";
 import { Archivo_Black } from "next/font/google";
 import Link from "next/link";
+import { signIn, useSession, signOut } from "next-auth/react";
 
 const contrail = Archivo_Black({
   weight: ["400"], // Cambiar a 400
@@ -10,6 +11,7 @@ const contrail = Archivo_Black({
 });
 
 export default function Menu() {
+  const { data: session } = useSession();
   const [open, setOpen] = React.useState(false);
 
   const openDrawer = () => setOpen(true);
@@ -49,6 +51,47 @@ export default function Menu() {
         </div>
 
         <div className="grid content-center gap-2">
+          {session?.user ? (
+            <div>
+              <div className="flex items-center gap-2 mb-2 justify-center">
+                <p className="text-lg font-semibold">Hola, {session.user.name}</p>
+                <img
+                  src={session.user.image}
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                  alt={session.user.name}
+                />
+              </div>
+              <Button
+                size="sm"
+                className="bg-blue-800 mb-2 w-full"
+                onClick={async () => {
+                  await signOut({
+                    callbackUrl: "/",
+                  });
+                }}
+              >
+                Cerrar Sesion
+              </Button>
+              <Link
+                href="/admin"
+                className="text-white  hover:text-blue-300 py-2 duration-200"
+              >
+                <Button size="sm" className="bg-blue-800 w-full">
+                  Admin
+                </Button>
+              </Link>
+            </div>
+          ) : (
+            <Button
+              size="sm"
+              className="bg-blue-800 w-full"
+              onClick={() => signIn()}
+            >
+              Ingresar
+            </Button>
+          )}
           <Link href="#reservas">
             <Button size="sm" variant="outlined" className="w-full">
               Reservas
@@ -77,14 +120,6 @@ export default function Menu() {
           >
             <Button size="sm" className="w-full">
               GitHub
-            </Button>
-          </Link>
-          <Link
-            href="/admin"
-            className="text-white  hover:text-blue-300 duration-200"
-          >
-            <Button size="sm" className="bg-blue-800 w-full">
-              Admin
             </Button>
           </Link>
         </div>

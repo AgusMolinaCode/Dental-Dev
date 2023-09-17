@@ -1,10 +1,12 @@
 import "./globals.css";
 import { Phudu } from "next/font/google";
+import Providers from "./Providers";
 
 const phudu = Phudu({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Cuidado dental de calidad en tu ciudad | Somos tu clínica dental de confianza",
+  title:
+    "Cuidado dental de calidad en tu ciudad | Somos tu clínica dental de confianza",
   description:
     "En nuestra clínica dental ofrecemos servicios de alta calidad para el cuidado de tus dientes y encías. Reserva tu cita hoy mismo y descubre por qué somos la mejor opción para tu salud dental.",
   keywords: [
@@ -26,7 +28,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={phudu.className}>
         <div className="bg-gray-200">
-          <main>{children}</main>
+          <Providers>
+            <main>{children}</main>
+          </Providers>
         </div>
       </body>
     </html>

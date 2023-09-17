@@ -2,13 +2,15 @@ import React from "react";
 import { Drawer, Button, IconButton } from "@material-tailwind/react";
 import { Archivo_Black } from "next/font/google";
 import Link from "next/link";
+import { signIn, useSession, signOut } from "next-auth/react";
 
 const contrail = Archivo_Black({
-  weight: ["400"], 
+  weight: ["400"],
   subsets: ["latin"],
 });
 
 export default function MenuAdmin(props) {
+  const { data: session } = useSession();
   const [open, setOpen] = React.useState(false);
 
   const openDrawer = () => setOpen(true);
@@ -53,6 +55,23 @@ export default function MenuAdmin(props) {
         </div>
 
         <div className="grid content-center gap-2">
+          {session?.user ? (
+            <div>
+              <div className="flex items-center gap-2 mb-2 justify-center">
+                <p className="text-lg font-semibold">
+                  Hola, {session.user.name}
+                </p>
+                <img
+                  src={session.user.image}
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                  alt={session.user.name}
+                />
+              </div>
+            </div>
+          ) : null}
+
           <Button
             size="sm"
             variant="outlined"
@@ -113,6 +132,16 @@ export default function MenuAdmin(props) {
               Home
             </Button>
           </Link>
+          {session?.user ? (
+            <Link
+              href="/"
+              className="text-white  hover:text-blue-300 duration-200"
+            >
+              <Button size="sm" className="bg-red-800 w-full">
+                Cerrar Sesion
+              </Button>
+            </Link>
+          ) : null}
         </div>
       </Drawer>
     </React.Fragment>
