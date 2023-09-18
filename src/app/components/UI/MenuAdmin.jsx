@@ -3,6 +3,7 @@ import { Drawer, Button, IconButton } from "@material-tailwind/react";
 import { Archivo_Black } from "next/font/google";
 import Link from "next/link";
 import { signIn, useSession, signOut } from "next-auth/react";
+import Image from "next/image";
 
 const contrail = Archivo_Black({
   weight: ["400"],
@@ -61,7 +62,7 @@ export default function MenuAdmin(props) {
                 <p className="text-lg font-semibold">
                   Hola, {session.user.name}
                 </p>
-                <img
+                <Image
                   src={session.user.image}
                   width={40}
                   height={40}

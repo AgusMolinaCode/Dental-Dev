@@ -12,6 +12,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Archivo_Black } from "next/font/google";
 import { signIn, useSession, signOut } from "next-auth/react";
+import Image from "next/image";
 
 const contrail = Archivo_Black({
   weight: ["400"],
@@ -51,11 +52,12 @@ export default function Sidebar({ onButtonClick }) {
           <div>
             <div className="flex items-center gap-2 mb-2 justify-center">
               <p className="text-md font-semibold">Hola, {session.user.name}</p>
-              <img
+              <Image
                 src={session.user.image}
                 width={40}
                 height={40}
                 className="rounded-full"
+                alt={session.user.name}
               />
             </div>
           </div>
